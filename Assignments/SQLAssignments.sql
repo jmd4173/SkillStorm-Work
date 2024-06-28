@@ -546,6 +546,8 @@ ON
 	order_items.order_item_product_id = products.product_id
 WHERE order_date BETWEEN '2013-10-01 00:00:00:000' AND '2013-10-31 00:00:00:000'
 
+
+
 /* Ex7 Pt3-------------------------------------------------*/
 
 
@@ -877,9 +879,14 @@ ORDER BY
 --Ex9 Start
 
 /* Ex9 Pt1-------------------------------------------------*/
+USE AdventureWorks2022;
+SELECT 
+	ProductID, Name 
+FROM 
+	Production.Product;
 
 
-
+SELECT * FROM HumanResources.Employee
 
 /* Ex9 Pt1-------------------------------------------------*/
 
