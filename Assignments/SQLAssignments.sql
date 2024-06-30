@@ -207,6 +207,40 @@ ORDER BY
 
 -- Ex 4 Start
 
+/* Ex4 Pt1-------------------------------------------------*/
+
+USE retail_db
+
+SELECT
+	(SELECT MAX(order_id) FROM orders) [Order ID],
+	(SELECT MAX(order_item_id) FROM order_items) [Order Items ID],
+	(SELECT MAX(customer_id) FROM customers) [Customer ID], 
+	(SELECT MAX(product_id) FROM products) [Product ID], 
+	(SELECT MAX(category_id) FROM categories) [Category ID], 
+	(SELECT MAX(department_id) FROM departments) [Department ID];
+
+
+
+ALTER TABLE orders
+ADD CONSTRAINT order_customer_id_FK FOREIGN KEY (order_customer_id) REFERENCES customers(customer_id);
+
+ALTER TABLE order_items
+ADD CONSTRAINT order_items_order_id_FK FOREIGN KEY (order_item_order_id) REFERENCES orders(order_id);
+
+ALTER TABLE order_items
+ADD CONSTRAINT order_items_product_id_FK FOREIGN KEY (order_item_product_id) REFERENCES products(product_id);
+
+
+SELECT * FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE;
+
+
+
+
+
+
+/* Ex4 Pt1-------------------------------------------------*/
+
+
 -- Ex 4 Finish
 
 
@@ -490,7 +524,7 @@ FROM
 /* Ex7 Pt2-------------------------------------------------*/
 
 SELECT * FROM orders
-
+use retail_db;
 
 SELECT 
 	customers.customer_fname,
@@ -887,6 +921,20 @@ FROM
 
 
 SELECT * FROM HumanResources.Employee
+
+
+-- 
+
+
+
+
+--
+
+
+
+SELECT * 
+FROM Sales.SalesOrderHeader 
+WHERE CustomerID = 295;
 
 /* Ex9 Pt1-------------------------------------------------*/
 
